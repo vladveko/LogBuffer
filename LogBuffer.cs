@@ -20,6 +20,7 @@ namespace LogBuffer
             if (TimerInterval < 1 || MessageLimit < 1)
                 throw new ArgumentException("Invalid Buffer paramenters.");
 
+            this.msgList = new List<string>();
             this.filePath = FilePath;
             this.msgLimit = MessageLimit;
             this.timer = new Timer(new TimerCallback(this.ClearBufferAsync), null, 0, TimerInterval);
